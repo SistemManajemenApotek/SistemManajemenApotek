@@ -5,11 +5,7 @@ import time
 from datetime import datetime
 from prettytable import PrettyTable 
 
-def bersihkan_layar():
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
+os.system("cls")
 
 def muat_data(nama_file, data_awal):
     try:
