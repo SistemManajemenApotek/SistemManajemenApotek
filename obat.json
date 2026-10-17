@@ -1,0 +1,23 @@
+[
+    {
+        "kode": "OB001",
+        "nama": "paracetamol",
+        "harga": 3000,
+        "stok": 50,
+        "kedaluarsa": "2028-12-30"
+    },
+    {
+        "kode": "OB002",
+        "nama": "bodrex",
+        "harga": 5000,
+        "stok": 30,
+        "kedaluarsa": "2028-12-30"
+    },
+    {
+        "kode": "OB003",
+        "nama": "minxagrip",
+        "harga": 7000,
+        "stok": 40,
+        "kedaluarsa": "2027-12-29"
+    }
+]
