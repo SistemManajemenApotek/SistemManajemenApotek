@@ -378,8 +378,8 @@ def menu_utama():
         print("┌────────────────────────────────────────┐")
         print("│      🏥 SISTEM MANAJEMEN APOTEK 🏥     │")
         print("├────────────────────────────────────────┤")
-        print("│ 1. Registrasi                          │")
-        print("│ 2. Login                               │")
+        print("│ 1. Login                               │")
+        print("│ 2. Registrasi                          │")
         print("│ 3. Keluar                              │")
         print("└────────────────────────────────────────┘")
 
@@ -387,9 +387,6 @@ def menu_utama():
             pilihan = int(input("Pilih menu: "))
 
             if pilihan == 1:
-                registrasi()
-
-            elif pilihan == 2:
                 username, role = login()
 
                 if role == "admin":
@@ -397,6 +394,9 @@ def menu_utama():
 
                 elif role == "user":
                     menu_pelanggan(username)
+
+            elif pilihan == 2:
+                registrasi()
 
             elif pilihan == 3:
                 print("Terima kasih telah menggunakan Sistem Manajemen Apotek Kami🤗.")
