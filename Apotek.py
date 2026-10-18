@@ -210,3 +210,129 @@ def tambah_obat():
     simpan_data(file_obat, obat)
 
     print("Obat berhasil ditambahkan.")
+
+#=================
+#Edit Data Obat
+#=================
+def edit_obat():
+    print("┌────────────────────────────────────────┐")
+    print("│             EDIT DATA OBAT  ⚙️          │")
+    print("└────────────────────────────────────────┘")
+
+    kode = input("Masukkan kode obat yang ingin diedit: ")
+
+    for data in obat:
+        if data["kode"] == kode:
+            print(f"Nama obat saat ini: {data['nama']}")
+            print(f"Harga saat ini: {data['harga']}")
+            print(f"Stok saat ini: {data['stok']}")
+            print(f"Kedaluwarsa saat ini: {data['kedaluwarsa']}")
+
+            nama_baru = input("Masukkan nama baru: ")
+
+            try:
+                harga_baru = int(input("Masukkan harga baru: "))
+                stok_baru = int(input("Masukkan stok baru: "))
+
+                if harga_baru <= 0 or stok_baru < 0:
+                    print("Harga harus lebih dari 0 dan stok tidak boleh negatif.")
+                    return
+
+            except ValueError:
+                print("Harga dan stok harus berupa angka.")
+                return
+
+            kedaluwarsa_baru = input("Masukkan tanggal kedaluwarsa baru (YYYY-MM-DD): ")
+
+            try:
+                datetime.strptime(kedaluwarsa_baru, "%Y-%m-%d")
+            except ValueError:
+                print("Format tanggal tidak valid.")
+                return
+
+            data["nama"] = nama_baru
+            data["harga"] = harga_baru
+            data["stok"] = stok_baru
+            data["kedaluwarsa"] = kedaluwarsa_baru
+
+            simpan_data(file_obat, obat)
+
+            print("Data obat berhasil diperbarui.")
+            return
+
+    print("Kode obat tidak ditemukan.")
+
+#==================
+#Hapus Data Obat
+#==================
+def hapus_obat():
+    print("┌────────────────────────────────────────┐")
+    print("│             HAPUS DATA OBAT  🗑️         │")
+    print("└────────────────────────────────────────┘")
+
+    kode = input("Masukkan kode obat yang ingin dihapus: ")
+
+    for data in obat:
+        if data["kode"] == kode:
+            print(f"Kode obat: {data['kode']}")
+            print(f"Nama obat: {data['nama']}")
+
+            konfirmasi = input("Apakah Anda yakin ingin menghapus obat ini? (y/n): ")
+
+            if konfirmasi == "y":
+                obat.remove(data)
+                simpan_data(file_obat, obat)
+                print("Obat berhasil dihapus.")
+
+            elif konfirmasi == "n":
+                print("Penghapusan dibatalkan.")
+
+            else:
+                print("Pilihan tidak valid. Penghapusan dibatalkan.")
+
+            return
+
+    print("Kode obat tidak ditemukan.")
+
+#=============
+#Menu Admin
+#=============
+def menu_admin():
+    while True:
+        print("┌────────────────────────────────────────┐")
+        print("│       ⚕️  MENU ADMIN APOTEK ⚕️           │")
+        print("├────────────────────────────────────────┤")
+        print("│ 1. Lihat Daftar Obat                   │")
+        print("│ 2. Tambah Obat                         │")
+        print("│ 3. Edit data obat                      │")
+        print("│ 4. Hapus Obat                          │")
+        print("│ 5. Riwayat Seluruh Transaksi           │")
+        print("│ 6. Ringkasan Transaksi                 │")   
+        print("│ 7. Logout                              │")                    
+        print("└────────────────────────────────────────┘")
+
+        try:
+            pilihan = int(input("Pilih menu Admin: "))
+
+            if pilihan == 1:
+                lihat_obat()
+
+            elif pilihan == 2:
+                tambah_obat()
+
+            elif pilihan == 3:
+                edit_obat()
+
+            elif pilihan == 4:
+                hapus_obat()
+
+            elif pilihan == 7:
+                print("Logout berhasil.")
+                break
+                time.sleep(1)
+
+            else:
+                print("Pilihan tidak valid. Silakan pilih 1 sampai 7.")
+
+        except ValueError:
+            print("Input harus berupa angka.")
