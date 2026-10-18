@@ -6,7 +6,7 @@ Anggota Kelompok
 1. Mirza Asra Ataya (2609116043)
 2. Laila Mufida (2609116046)
 3. Muh. Faisal (2609116075)
-4. Saniyyatul Aqilah (2609116080
+4. Saniyyatul Aqilah (2609116080)
 
 # FLOWCHART
 
