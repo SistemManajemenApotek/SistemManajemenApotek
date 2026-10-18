@@ -336,3 +336,79 @@ def menu_admin():
 
         except ValueError:
             print("Input harus berupa angka.")
+
+#=================
+#Menu Pelanggan
+#=================
+def menu_pelanggan(username):
+    while True:
+        print("┌────────────────────────────────────────┐")
+        print("│      ⚕️  MENU PELANGGAN APOTEK ⚕️        │")
+        print("├────────────────────────────────────────┤")
+        print("│ 1. Lihat Daftar Obat                   │")
+        print("│ 2. Cek Saldo E-Money                   │")
+        print("│ 3. Top up Saldo                        │")
+        print("│ 4. Beli Obat                           │")
+        print("│ 5. Riwayat Transaksi Saya              │")
+        print("│ 6. Logout                              │")                     
+        print("└────────────────────────────────────────┘")
+
+        try:
+            pilihan = int(input("Pilih menu Pelanggan: "))
+
+            if pilihan == 1:
+                lihat_obat()
+
+            elif pilihan == 6:
+                print("Logout berhasil.")
+                break
+                time.sleep(1)   
+
+            else:
+                print("Pilihan tidak valid. Silakan pilih 1 sampai 6.")
+
+        except ValueError:
+            print("Input harus berupa angka.")
+
+#=============
+#Menu Utama
+#=============
+def menu_utama():
+    while True:
+        print("┌────────────────────────────────────────┐")
+        print("│      🏥 SISTEM MANAJEMEN APOTEK 🏥     │")
+        print("├────────────────────────────────────────┤")
+        print("│ 1. Registrasi                          │")
+        print("│ 2. Login                               │")
+        print("│ 3. Keluar                              │")
+        print("└────────────────────────────────────────┘")
+
+        try:
+            pilihan = int(input("Pilih menu: "))
+
+            if pilihan == 1:
+                registrasi()
+
+            elif pilihan == 2:
+                username, role = login()
+
+                if role == "admin":
+                    menu_admin()
+
+                elif role == "user":
+                    menu_pelanggan(username)
+
+            elif pilihan == 3:
+                print("Terima kasih telah menggunakan Sistem Manajemen Apotek Kami🤗.")
+                break
+
+            else:
+                print("Pilihan tidak valid. Silakan pilih 1, 2, atau 3.")
+
+        except ValueError:
+            print("Input harus berupa angka.")
+
+#============================
+#Menjalankan Program Utama
+#============================
+menu_utama()
