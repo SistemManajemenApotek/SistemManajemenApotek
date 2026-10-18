@@ -19,5 +19,19 @@
         "harga": 7000,
         "stok": 40,
         "kedaluarsa": "2027-12-29"
+    },
+    {
+        "kode": "OB004",
+        "nama": "Promag",
+        "harga": 4000,
+        "stok": 30,
+        "kedaluarsa": "2027-12-29"
+    },
+    {
+        "kode": "OB005",
+        "nama": "Antimo",
+        "harga": 6000,
+        "stok": 45,
+        "kedaluarsa": "2027-12-29"
     }
 ]
