@@ -132,3 +132,81 @@ def login():
 
     return None, None
 
+#=============
+#Lihat Obat
+#=============
+def lihat_obat():
+    print("┌────────────────────────────────────────┐")
+    print("│         💊 DAFTAR OBAT APOTEK 💊       │")
+    print("└────────────────────────────────────────┘")
+
+    if len(obat) == 0:
+        print("Belum ada data obat.")
+        return
+
+    tabel = PrettyTable()
+    tabel.field_names = [
+        "Kode", "Nama Obat", "Harga", "Stok", "Kedaluwarsa"
+    ]
+
+    for data in obat:
+        tabel.add_row([
+            data["kode"],
+            data["nama"],
+            f"{data['harga']:,}".replace(',', '.'),
+            data["stok"],
+            data["kedaluwarsa"]
+        ])
+
+    print(tabel)
+
+#==============
+#Tambah Obat
+#==============
+def tambah_obat():
+    print("┌────────────────────────────────────────┐")
+    print("│             TAMBAH OBAT 📥             │")
+    print("└────────────────────────────────────────┘")
+
+
+    kode = input("Masukkan kode obat: ")
+
+    for data in obat:
+        if data["kode"] == kode:
+            print("Kode obat sudah digunakan.")
+            return
+
+    nama = input("Masukkan nama obat: ")
+
+    try:
+        harga = int(input("Masukkan harga obat: "))
+        stok = int(input("Masukkan stok obat: "))
+
+        if harga <= 0 or stok < 0:
+            print("Harga harus lebih dari 0 dan stok tidak boleh negatif.")
+            return
+
+    except ValueError:
+        print("Harga dan stok harus berupa angka.")
+        return
+
+    kedaluwarsa = input("Masukkan tanggal kedaluwarsa (YYYY-MM-DD): ")
+
+    try:
+        datetime.strptime(kedaluwarsa, "%Y-%m-%d")
+    except ValueError:
+        print("Format tanggal tidak valid.")
+        return
+
+    data_baru = {
+        "kode": kode,
+        "nama": nama,
+        "harga": harga,
+        "stok": stok,
+        "kedaluwarsa": kedaluwarsa
+    }
+
+    obat.append(data_baru)
+    simpan_data(file_obat, obat)
+
+    print("Obat berhasil ditambahkan.")
