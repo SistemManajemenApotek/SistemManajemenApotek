@@ -31,11 +31,10 @@ Tujuan pembuatan Sistem Manajemen Apotek adalah:
 # FLOWCHART
 
 Halaman Utama
-<img width="2256" height="1731" alt="Flowhchart PA Halaman Utama drawio" src="https://github.com/user-attachments/assets/55e6afeb-a640-4169-9168-9d7203682828" />
+<img width="2443" height="1690" alt="Flowchart PA Halaman Utama drawio" src="https://github.com/user-attachments/assets/3520a2db-f1dc-42d3-80ec-c312616ba9f5" />
 
 Menu Admin
-<img width="3517" height="2650" alt="Flowchart PA Menu Admin drawio" src="https://github.com/user-attachments/assets/bc7da873-8311-4dab-b53c-bcbdf54b16cd" />
+<img width="3533" height="3023" alt="Flowchart PA Menu Admin  drawio" src="https://github.com/user-attachments/assets/06989685-ca33-4b58-8460-407843811a83" />
 
 Menu Pelanggan
-<img width="2774" height="2280" alt="Flowchart PA Menu Pelanggan drawio" src="https://github.com/user-attachments/assets/3aa68900-9683-4a41-87e9-933834f0a832" />
-
+<img width="2779" height="2557" alt="Flowchart PA Menu Pelanggan drawio(1)" src="https://github.com/user-attachments/assets/5b1c4501-b5bd-4514-babf-bfe9658830ef" />
