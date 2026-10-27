@@ -34,7 +34,7 @@ Halaman Utama
 <img width="2443" height="1690" alt="Flowchart PA Halaman Utama drawio" src="https://github.com/user-attachments/assets/3520a2db-f1dc-42d3-80ec-c312616ba9f5" />
 
 Menu Admin
-<img width="3533" height="3023" alt="Flowchart PA Menu Admin  drawio" src="https://github.com/user-attachments/assets/06989685-ca33-4b58-8460-407843811a83" />
+<img width="3533" height="3024" alt="Flowchart PA Menu Admin drawio" src="https://github.com/user-attachments/assets/5883e738-8cd3-41e4-9197-efd61b5b3a78" />
 
 Menu Pelanggan
 <img width="2779" height="2557" alt="Flowchart PA Menu Pelanggan drawio(1)" src="https://github.com/user-attachments/assets/5b1c4501-b5bd-4514-babf-bfe9658830ef" />
