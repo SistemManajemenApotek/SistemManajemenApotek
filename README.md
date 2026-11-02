@@ -32,12 +32,166 @@ Tujuan pembuatan Sistem Manajemen Apotek adalah:
 
 ## Halaman Utama
 <img width="2443" height="1690" alt="Flowchart PA Halaman Utama drawio" src="https://github.com/user-attachments/assets/b6d8bec9-afdf-4b50-988b-fb56d80a93d9" />
+Penjelasan alur flowchart menu utama.
+1.	Menu Utama: Program menampilkan tiga pilihan, yaitu Login, Registrasi, dan Keluar.
+2.	Input Pilihan Menu Halaman Utama: Pengguna memasukkan pilihan sesuai menu yang tersedia.
+3.	Pemeriksaan Pilihan Menu: Program memeriksa pilihan pengguna,
+•	Jika memilih 1, program menjalankan proses login.
+•	Jika memilih 2, program menjalankan proses registrasi.
+•	Jika memilih 3, program menjalankan proses keluar dari sistem.
+•	Jika pilihan tidak sesuai, program menampilkan pesan bahwa pilihan tidak valid dan kembali ke menu utama.
+4.	Proses Login: Pengguna diminta memasukkan username dan password.
+5.	Proses Memeriksa Username dan Password: Program memeriksa apakah data login sesuai dengan akun yang tersimpan.
+6.	Pemeriksaan Kesesuaian Login,
+•	Jika username dan password tidak sesuai, program menampilkan pesan kesalahan dan menambah jumlah percobaan login.
+•	Jika login berhasil, program melanjutkan pemeriksaan role akun.
+7.	Pemeriksaan Batas Percobaan Login: Jika login gagal sebanyak tiga kali, program menampilkan pesan bahwa batas percobaan telah tercapai, kemudian kembali ke menu utama. Jika belum mencapai tiga kali, pengguna dapat mencoba login kembali.
+8.	Pemeriksaan Role Akun: Setelah login berhasil, program memeriksa jenis akun pengguna.
+9.	Pengalihan Menu Berdasarkan Role,
+•	Jika role akun adalah admin, program masuk ke Menu Admin.
+•	Jika role akun adalah user, program masuk ke Menu Pelanggan.
+10.	Proses Registrasi: Jika pengguna memilih registrasi, program meminta nama lengkap, username, dan password sesuai ketentuan yang ditampilkan pada flowchart.
+11.	Validasi Username: Program memeriksa apakah username memenuhi minimal empat karakter dan belum digunakan. Jika tidak memenuhi, program menampilkan pesan kesalahan dan meminta input kembali.
+12.	Validasi Password: Program memeriksa apakah password memenuhi minimal enam karakter. Jika belum memenuhi, program meminta pengguna memasukkan password kembali.
+13.	Penyimpanan Akun Baru: Jika seluruh validasi berhasil, program menyimpan data akun ke file JSON.
+14.	Output Registrasi Berhasil: Program menampilkan pesan bahwa registrasi berhasil.
+15.	Menu Utama Kembali: Setelah registrasi selesai, pengguna diarahkan kembali ke menu utama.
+16.	Proses Keluar dari Sistem: Jika pengguna memilih menu Keluar, program menampilkan pesan bahwa pengguna telah keluar dari sistem.
+17.	End: Program mengakhiri proses.
 
 ## Menu Admin
 <img width="3533" height="3140" alt="Flowchart PA Menu Admin drawio(1)" src="https://github.com/user-attachments/assets/146d8674-a996-46e6-a044-fb8ace1c7256" />
+Penjelasan alur flowchart menu admin.
+1. Menu Admin:  Setelah login berhasil dan role akun teridentifikasi sebagai admin, program menampilkan menu admin.
+2. Input Pilihan Menu Admin: Admin memilih salah satu dari tujuh pilihan yang tersedia.
+3. Pemeriksaan Pilihan Menu: Program memeriksa pilihan admin dan menjalankan proses sesuai menu yang dipilih.
+   
+A.	Menu 1 Lihat Daftar Obat
+1.	Mengakses Data Obat: Program membaca data obat dari file obat.json.
+2.	Memproses Data Obat: Program mengambil data obat yang tersimpan.
+3.	Output Daftar Obat: Program menampilkan daftar obat beserta informasi yang tersedia.
+4.	Kembali ke Menu Admin: Setelah daftar obat ditampilkan, admin dapat memilih menu lainnya.
+
+B. Menu 2 Tambah Data Obat
+1.	Input Kode Obat: Admin memasukkan kode untuk obat yang akan ditambahkan.
+2.	Validasi Kode Obat: Program memeriksa apakah kode obat sudah digunakan dan tidak boleh kosong. Jika kode tidak valid, program menampilkan pesan kesalahan dan meminta input kembali.
+3.	Input Nama Obat: Admin memasukkan nama obat. Jika nama kosong, program meminta input kembali.
+4.	Input Harga Obat: Admin memasukkan harga obat yang harus lebih dari nol. Jika tidak valid, program meminta input kembali.
+5.	Input Stok Obat: Admin memasukkan jumlah stok yang harus memenuhi ketentuan pada flowchart, yaitu tidak boleh negatif.
+6.	Input Tanggal Kedaluwarsa: Admin memasukkan tanggal kedaluwarsa dengan format DD-MM-YYYY.
+7.	Validasi Format Tanggal: Program memeriksa apakah format tanggal sesuai. Jika tidak sesuai, admin diminta memasukkan tanggal kembali.
+8.	Proses Tambah Data Obat: Jika semua input valid, program menambahkan data obat baru.
+9.	Penyimpanan Data: Data obat disimpan ke file obat.json.
+10.	Output Obat Berhasil Ditambahkan: Program menampilkan pesan keberhasilan dan kembali ke Menu Admin.
+
+C. Menu 3 Ubah Data Obat
+1.	Input Kode Obat yang Ingin Diubah: Admin memasukkan kode obat yang datanya ingin diperbarui.
+2.	Validasi Kode Obat: Program memeriksa apakah kode obat ditemukan. Jika tidak ditemukan, program menampilkan pesan kesalahan dan meminta kode kembali.
+3.	Input Nama Obat Baru: Admin memasukkan nama obat baru. Nama tidak boleh kosong.
+4.	Input Harga Baru: Admin memasukkan harga baru yang harus lebih dari nol.
+5.	Input Stok Baru: Admin memasukkan stok baru sesuai ketentuan, yaitu tidak boleh negatif.
+6.	Input Tanggal Kedaluwarsa Baru: Admin memasukkan tanggal kedaluwarsa dengan format DD-MM-YYYY.
+7.	Validasi Tanggal: Program memeriksa format tanggal. Jika tidak sesuai, admin diminta memasukkan tanggal kembali.
+8.	Proses Perubahan Data: Program memperbarui informasi obat berdasarkan kode yang dipilih.
+9.	Penyimpanan Data: Perubahan disimpan ke obat.json.
+10.	Output Obat Berhasil Diperbarui: Program menampilkan pesan keberhasilan dan kembali ke Menu Admin.
+
+D. Menu 4 Hapus Data Obat
+1.	Input Kode Obat yang Ingin Dihapus: Admin memasukkan kode obat yang ingin dihapus.
+2.	Validasi Kode Obat: Program memeriksa apakah kode obat ditemukan. Jika tidak ditemukan, program menampilkan pesan kesalahan.
+3.	Output Tampilan Detail Obat: Jika kode ditemukan, program menampilkan detail obat yang akan dihapus.
+4.	Konfirmasi Penghapusan: Admin diminta mengonfirmasi penghapusan dengan pilihan y/n.
+5.	Pemeriksaan Konfirmasi:
+•	Jika admin memilih y, program melanjutkan proses penghapusan.
+•	Jika admin memilih n, penghapusan dibatalkan dan program kembali ke Menu Admin.
+6.	Proses Menghapus Data Obat: Program menghapus data obat yang dipilih.
+7.	Penyimpanan Data: Perubahan disimpan ke obat.json.
+8.	Output Obat Berhasil Dihapus: Program menampilkan pesan keberhasilan dan kembali ke Menu Admin.
+   
+E. Menu 5 Lihat Riwayat Transaksi
+1.	Mengakses Data Transaksi: Program membaca data transaksi dari file transaksi.json.
+2.	Pemeriksaan Ketersediaan Transaksi: Program memeriksa apakah terdapat data transaksi.
+3.	Jika Tidak Ada Transaksi: Program menampilkan pesan bahwa belum ada transaksi, kemudian kembali ke Menu Admin.
+4.	Jika Ada Transaksi: Program menampilkan seluruh riwayat transaksi yang tersimpan.
+5.	Kembali ke Menu Admin: Setelah riwayat ditampilkan, admin dapat memilih menu lainnya.
+
+F. Menu 6 Lihat Ringkasan Apotek
+1.	Mengakses Data Transaksi: Program membaca data transaksi yang tersimpan.
+2.	Pemeriksaan Ketersediaan Transaksi: Program memeriksa apakah data transaksi tersedia.
+3.	Jika Tidak Ada Transaksi: Program menampilkan pesan bahwa belum ada transaksi, kemudian kembali ke Menu Admin.
+4.	Jika Ada Transaksi: Program melanjutkan proses perhitungan ringkasan penjualan.
+5.	Proses Menghitung Pendapatan: Program menghitung total pendapatan berdasarkan transaksi yang tercatat.
+6.	Proses Menghitung Jumlah Penjualan: Program menghitung jumlah penjualan setiap obat berdasarkan data transaksi.
+7.	Proses Menentukan Obat Terlaris: Program menentukan obat yang paling banyak terjual.
+8.	Output Ringkasan Apotek: Program menampilkan hasil ringkasan, seperti pendapatan, jumlah penjualan, dan obat terlaris.
+9.	Kembali ke Menu Admin: Setelah ringkasan ditampilkan, admin dapat memilih menu lainnya.
+   
+G. Menu 7 Logout
+1.	Proses Logout Admin: Program menjalankan proses keluar dari akun admin.
+2.	Output Logout Berhasil: Program menampilkan pesan bahwa logout berhasil.
+3.	Kembali ke Menu Halaman Utama: Admin diarahkan kembali ke halaman utama untuk login kembali, melakukan registrasi, atau keluar dari sistem.
 
 ## Menu Pelanggan
 <img width="2786" height="2557" alt="Flowchart PA Menu Pelanggan drawio" src="https://github.com/user-attachments/assets/c0625c61-64a4-4795-94c8-6139aa6a47c1" />
+Penjelasan flowchart menu pelanggan.
+1. Menu Pelanggan:  Setelah login berhasil dan role akun teridentifikasi sebagai admin, program menampilkan menu admin.
+2. Input Pilihan Menu Pelanggan: Pelanggan memilih salah satu dari enam pilihan yang tersedia.
+3. Pemeriksaan Pilihan Menu: Program memeriksa pilihan pelanggan dan menjalankan proses sesuai menu yang dipilih.
+
+A. Menu 1 Lihat Daftar Obat
+1.	Mengakses Data Obat: Program membaca data obat dari file obat.json.
+2.	Memproses Data Obat: Program mengambil informasi obat yang tersimpan.
+3.	Output Daftar Obat: Program menampilkan daftar obat beserta informasi yang tersedia.
+4.	Kembali ke Menu Pelanggan: Setelah daftar obat ditampilkan, pelanggan dapat memilih menu lainnya.
+   
+B. Menu 2 Cek Saldo E-Money
+1.	Mengakses Data Akun: Program membaca data akun dari file akun.json.
+2.	Memproses Data Saldo: Program mengambil saldo dari akun pelanggan yang sedang login.
+3.	Output Saldo E-Money: Program menampilkan jumlah saldo yang dimiliki pelanggan.
+4.	Kembali ke Menu Pelanggan: Setelah saldo ditampilkan, pelanggan dapat memilih menu lainnya.
+
+C. Menu 3 Top-Up Saldo
+1.	Mengakses Data Akun: Program membaca data akun pelanggan dari akun.json.
+2.	Input Nominal Top-Up: Pelanggan memasukkan nominal saldo yang ingin ditambahkan.
+3.	Validasi Nominal Top-Up: Program memeriksa apakah nominal top-up memenuhi ketentuan. Berdasarkan flowchart, nominal harus lebih dari nol.
+4.	Jika Nominal Tidak Valid: Program menampilkan pesan bahwa nominal top-up tidak valid, kemudian meminta input kembali.
+5.	Jika Nominal Valid: Program melanjutkan proses penambahan saldo.
+6.	Proses Menyimpan Saldo: Program menambahkan nominal top-up ke saldo pelanggan.
+7.	Penyimpanan Data Akun: Saldo terbaru disimpan ke file akun.json.
+8.	Output Saldo Berhasil Ditambah: Program menampilkan informasi bahwa saldo berhasil ditambahkan.
+9.	Kembali ke Menu Pelanggan: Setelah top-up selesai, pelanggan dapat memilih menu lainnya.
+   
+D. Menu 4 Beli Obat
+1.	Mengakses Data Obat: Program membaca daftar obat dari obat.json.
+2.	Output Daftar Obat: Program menampilkan obat yang tersedia untuk dibeli.
+3.	Input Kode Obat: Pelanggan memasukkan kode obat yang ingin dibeli.
+4.	Validasi Kode Obat: Program memeriksa apakah kode obat ditemukan. Jika tidak ditemukan, program menampilkan pesan kesalahan dan meminta kode kembali.
+5.	Input Jumlah Obat: Pelanggan memasukkan jumlah obat yang ingin dibeli.
+6.	Validasi Jumlah Pembelian: Program memeriksa apakah jumlah yang dimasukkan lebih dari nol. Jika tidak valid, pelanggan diminta memasukkan jumlah kembali.
+7.	Pemeriksaan Ketersediaan Stok: Program memeriksa apakah stok obat mencukupi untuk jumlah pembelian.
+8.	Jika Stok Tidak Mencukupi: Program menampilkan pesan bahwa stok tidak mencukupi dan meminta pelanggan memasukkan jumlah kembali.
+9.	Jika Stok Mencukupi: Program melanjutkan proses perhitungan transaksi.
+10.	Proses Menghitung Total Harga: Program menghitung total harga berdasarkan harga satuan dan jumlah obat yang dibeli.
+11.	Pemeriksaan Saldo Pelanggan: Program memeriksa apakah saldo pelanggan mencukupi untuk membayar total pembelian.
+12.	Jika Saldo Tidak Mencukupi: Program menampilkan pesan bahwa saldo tidak mencukupi dan mengarahkan pelanggan kembali ke Menu Pelanggan.
+13.	Jika Saldo Mencukupi: Program mengurangi saldo pelanggan dan stok obat sesuai jumlah pembelian.
+14.	Penyimpanan Transaksi: Program menyimpan data pembelian ke transaksi.json serta menyimpan perubahan saldo ke akun.json dan stok ke obat.json.
+15.	Output Invoice: Program menampilkan rincian pembelian sebagai invoice, yang mencakup kode transaksi, tanggal pembelian, nama obat, harga satuan, jumlah, dan total harga.
+16.	Kembali ke Menu Pelanggan: Setelah transaksi selesai, pelanggan dapat memilih menu lainnya.
+
+E. Menu 5 Riwayat Transaksi
+1.	Mengakses Data Transaksi: Program membaca data transaksi dari transaksi.json.
+2.	Memproses Data Transaksi: Program mengambil riwayat transaksi yang tersimpan.
+3.	Memfilter Transaksi Berdasarkan Username: Program menyaring data agar hanya menampilkan transaksi milik pelanggan yang sedang login.
+4.	Pemeriksaan Ketersediaan Transaksi: Program memeriksa apakah pelanggan memiliki riwayat transaksi.
+5.	Jika Belum Ada Transaksi: Program menampilkan pesan bahwa pelanggan belum memiliki transaksi.
+6.	Jika Ada Transaksi: Program menampilkan riwayat transaksi milik pelanggan tersebut.
+7.	Kembali ke Menu Pelanggan: Setelah riwayat ditampilkan, pelanggan dapat memilih menu lainnya.
+
+F. Menu 6 Logout
+1.	Proses Logout Pelanggan: Program menjalankan proses keluar dari akun pelanggan.
+2.	Output Logout Berhasil: Program menampilkan pesan bahwa logout berhasil.
+3.	Kembali ke Menu Halaman Utama: Pelanggan diarahkan kembali ke halaman utama.
 
 # DAFTAR FITUR PER ROLE
 
