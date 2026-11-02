@@ -694,3 +694,173 @@ def top_up(username):
         except KeyboardInterrupt:
             print("Jangan tekan Ctrl+C bro!")
             continue
+
+#=================
+#Pembelian Obat
+#=================
+def beli_obat(username):
+    print("┌────────────────────────────────────────┐")
+    print("│          🛒 PEMBELIAN OBAT             │")
+    print("└────────────────────────────────────────┘")
+    lihat_obat()
+
+    if len(obat) == 0:
+        print("Belum ada obat yang tersedia.")
+        return
+
+    while True:
+        try:
+            kode_obat = input("Masukkan kode obat yang ingin dibeli : ")
+        except KeyboardInterrupt:
+            print("Jangan tekan Ctrl+C bro!")
+            continue
+
+        if kode_obat == "":
+            print("Kode obat tidak boleh kosong.")
+            continue
+
+        index_obat = -1
+
+        for i in range(len(obat)):
+            if obat[i]["kode"] == kode_obat:
+                index_obat = i
+                break
+
+        if index_obat == -1:
+            print("Kode obat tidak ditemukan.")
+            continue
+        break
+    
+    while True:
+        try:
+            jumlah = int(input("Masukkan jumlah yang ingin dibeli: "))
+
+        except ValueError:
+            print("Jumlah pembelian harus berupa angka.")
+            continue
+        except KeyboardInterrupt:
+            print("Jangan tekan Ctrl+C bro!")
+            continue
+
+        if jumlah <= 0:
+            print("Jumlah pembelian harus lebih dari 0.")
+            continue
+
+        if jumlah > obat[index_obat]["stok"]:
+            print("Stok obat tidak mencukupi.")
+            continue
+        break
+
+    try:
+        harga = obat[index_obat]["harga"]
+        total = harga * jumlah
+        waktu_transaksi = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        if total > akun[username]["saldo"]:
+            print("Saldo tidak mencukupi.")
+            print(f"Total pembelian Anda: Rp{total:,}".replace(",", "."))
+            print(f"Saldo Anda saat ini hanya: Rp{akun[username]['saldo']:,}".replace(",", "."))
+            print("Silakan top-up saldo Anda terlebih dahulu.")
+            return
+
+        nomor_transaksi = len(transaksi) + 1
+        kode_transaksi = f"TRX{nomor_transaksi:03d}"
+
+        print("┌────────────────────────────────────────┐")
+        print("│          🧾 INVOICE PEMBELIAN          │")
+        print("├────────────────────────────────────────┤")
+        print(  f"  Kode transaksi  : {kode_transaksi}")
+        print(  f"  Tanggal         : {waktu_transaksi}")
+        print(  f"  Nama obat       : {obat[index_obat]['nama']}")
+        print(  f"  Harga satuan    : Rp{harga:,}".replace(",", "."))
+        print(  f"  Jumlah          : {jumlah}")
+        print(  f"  Total harga     : Rp{total:,}".replace(",", "."))
+        print(  f"  Saldo setelah pembelian: "f"Rp{akun[username]['saldo'] - total:,}".replace(",", "."))
+        print("└────────────────────────────────────────┘")
+        time.sleep(1)
+
+        konfirmasi = input("Lanjutkan pembayaran? (y/n): ")
+
+        if konfirmasi != "y" and konfirmasi != "Y":
+            print("Pembelian dibatalkan.")
+            return
+
+        akun[username]["saldo"] -= total
+        obat[index_obat]["stok"] -= jumlah
+
+        data_transaksi = {
+            "kode_transaksi": kode_transaksi,
+            "username": username,
+            "nama_pelanggan": akun[username]["nama"],
+            "kode_obat": obat[index_obat]["kode"],
+            "nama_obat": obat[index_obat]["nama"],
+            "harga": harga,
+            "jumlah": jumlah,
+            "total": total,
+            "waktu": waktu_transaksi
+        }
+
+        transaksi.append(data_transaksi)
+
+        simpan_data(file_akun, akun)
+        simpan_data(file_obat, obat)
+        simpan_data(file_transaksi, transaksi)
+
+        print("\nPembelian berhasil!")
+        print(f"Kode transaksi: {kode_transaksi}")
+        print(f"Total pembayaran: Rp{total:,}".replace(",", "."))
+        print(f"Sisa saldo: Rp{akun[username]['saldo']:,}".replace(",", "."))
+        print(f"Sisa stok obat: {obat[index_obat]['stok']}")
+        time.sleep(1)   
+
+    except ValueError:
+        print("Jumlah pembelian harus berupa angka.")
+
+#=================
+#Menu Pelanggan
+#=================
+def menu_pelanggan(username):
+    while True:
+        print("┌────────────────────────────────────────┐")
+        print("│      ⚕️  MENU PELANGGAN APOTEK  ⚕️       │")
+        print("├────────────────────────────────────────┤")
+        print("│ 1. Lihat Daftar Obat                   │")
+        print("│ 2. Cek Saldo E-Money                   │")
+        print("│ 3. Top up Saldo                        │")
+        print("│ 4. Beli Obat                           │")
+        print("│ 5. Riwayat Transaksi Saya              │")
+        print("│ 6. Logout                              │")                     
+        print("└────────────────────────────────────────┘")
+
+        try:
+            pilihan = int(input("Pilih menu Pelanggan: "))
+
+            if pilihan == 1:
+                lihat_obat()
+
+            elif pilihan == 2:
+                lihat_saldo(username)
+
+            elif pilihan == 3:
+                top_up(username)
+
+            elif pilihan == 4:
+                beli_obat(username)
+
+            elif pilihan == 5:
+                riwayat_transaksi(username)
+
+            elif pilihan == 6:
+                print("Logout berhasil.")
+                break
+                time.sleep(1)   
+
+            else:
+                print("Pilihan tidak valid. Silakan pilih 1 sampai 6.")
+
+        except ValueError:
+            print("Input harus berupa angka.")
+            continue
+        except KeyboardInterrupt:
+            print("Jangan tekan Ctrl+C bro!")
+            continue
