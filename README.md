@@ -30,14 +30,13 @@ Tujuan pembuatan Sistem Manajemen Apotek adalah:
 
 # FLOWCHART
 
-Halaman Utama
+## Halaman Utama
 <img width="2443" height="1690" alt="Flowchart PA Halaman Utama drawio" src="https://github.com/user-attachments/assets/b6d8bec9-afdf-4b50-988b-fb56d80a93d9" />
 
-
-Menu Admin
+## Menu Admin
 <img width="3533" height="3140" alt="Flowchart PA Menu Admin drawio(1)" src="https://github.com/user-attachments/assets/146d8674-a996-46e6-a044-fb8ace1c7256" />
 
-Menu Pelanggan
+## Menu Pelanggan
 <img width="2786" height="2557" alt="Flowchart PA Menu Pelanggan drawio" src="https://github.com/user-attachments/assets/c0625c61-64a4-4795-94c8-6139aa6a47c1" />
 
 # DAFTAR FITUR PER ROLE
@@ -78,9 +77,8 @@ Pelanggan memiliki akses untuk:
 2. Tampilan menu utama dan registrasi akun baru
 <img width="362" height="287" alt="Screenshot 2026-10-29 150116" src="https://github.com/user-attachments/assets/117f29b6-f49f-4b0d-aa85-546185ca00a7" />
 
-
-3. Tampilan menu utama dan login sebagai pelanggan
-<img width="307" height="297" alt="Screenshot 2026-10-29 150348" src="https://github.com/user-attachments/assets/2d27f16c-87bf-4cc9-b4e8-e86d2df59ec5" />
+3. Tampilan menu utama dan login sebagai pelanggan + percobaan jika salah memasukkan yang salaah
+<img width="273" height="230" alt="Screenshot 2026-11-02 105219" src="https://github.com/user-attachments/assets/16a09bf2-15d2-47c4-ab86-0a31d9abd177" />
 
 ## Menu Admin
 
@@ -91,9 +89,23 @@ Pelanggan memiliki akses untuk:
 <img width="382" height="177" alt="Screenshot 2026-10-29 151946" src="https://github.com/user-attachments/assets/1b16a9c6-61de-40d6-afac-19cb9d728d47" />
 
 3. Tampilan menu admin 2 (Tambah Obat)
-
-
+<img width="432" height="550" alt="Screenshot 2026-11-02 102408" src="https://github.com/user-attachments/assets/cab4a1e5-c9b8-44fa-bce1-90ffa32164a5" />
 
 4. Tampilan menu admin 3 (Edit Data Obat)
+<img width="317" height="565" alt="Screenshot 2026-11-02 103140" src="https://github.com/user-attachments/assets/594c8901-97d2-45ab-8477-ed265ac14773" />
 
+5. Tampilan menu admin 4 (Hapus Data Obat)
+<img width="346" height="457" alt="Screenshot 2026-11-02 103405" src="https://github.com/user-attachments/assets/dab9dd10-0972-47ec-ac63-0b19f07c336e" />
 
+6. Tampilan menu admin 5 (Lihat Riwayat Transaksi Pelanggan)
+<img width="577" height="677" alt="Screenshot 2026-11-02 103816" src="https://github.com/user-attachments/assets/750d3527-1ca7-4b53-a5e6-e1a5ee59f928" />
+
+7. Tampilan menu admin 6 (Lihat Ringkasan Apotek)
+<img width="277" height="270" alt="Screenshot 2026-11-02 104123" src="https://github.com/user-attachments/assets/03c53f11-946a-45bb-a7bd-6c4d7739fda9" />
+
+8. Tampilan menu admin 7 (Logout)
+<img width="272" height="301" alt="Screenshot 2026-11-02 104254" src="https://github.com/user-attachments/assets/72371749-8568-479c-beec-453f8fc3a5b1" />
+
+## Tampilan Menu Pelanggan
+
+1. Tampilan menu pelanggan
