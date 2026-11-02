@@ -448,3 +448,249 @@ def edit_obat():
 
     print("Data obat berhasil diperbarui.")
     time.sleep(1)
+
+#==================
+#Hapus Data Obat
+#==================
+def hapus_obat():
+    print("┌────────────────────────────────────────┐")
+    print("│             HAPUS DATA OBAT  🗑️         │")
+    print("└────────────────────────────────────────┘")
+
+    while True:
+
+        if len(obat) == 0:
+            print("Belum ada data obat.")
+            return
+        
+        tabel = PrettyTable()
+        tabel.field_names = [
+        "Kode", "Nama Obat", "Harga", "Stok", "Kedaluwarsa"
+        ]
+        
+        for data in obat:
+            tabel.add_row([
+                data["kode"],
+                data["nama"],
+                f"{data['harga']:,}".replace(',', '.'),
+                data["stok"],
+                data["kedaluwarsa"]
+        ])
+        
+        print(tabel)
+
+        try:
+            kode = input("Masukkan kode obat yang ingin dihapus: ")
+        except KeyboardInterrupt:
+            print("Jangan tekan Ctrl+C bro!")
+            continue
+
+        data_ditemukan = None
+        for data in obat:
+            if data["kode"] == kode:
+                data_ditemukan = data
+                break
+
+        if data_ditemukan is not None:
+            break
+
+        print("Kode obat tidak ditemukan. Silakan masukkan kembali.")
+
+    print(f"Kode obat: {data_ditemukan['kode']}")
+    print(f"Nama obat: {data_ditemukan['nama']}")
+
+    try:
+        konfirmasi = input("Apakah Anda yakin ingin menghapus obat ini? (y/n): ")
+    except KeyboardInterrupt:
+        print("Jangan tekan Ctrl+C bro!")
+        return
+
+    if konfirmasi == "y":
+        obat.remove(data_ditemukan)
+        simpan_data(file_obat, obat)
+        print("Obat berhasil dihapus.")
+        time.sleep(1)
+
+    elif konfirmasi == "n":
+        print("Penghapusan dibatalkan.")
+
+    else:
+        print("Pilihan tidak valid. Penghapusan dibatalkan.")
+
+#====================
+#Riwayat Transaksi
+#====================
+def riwayat_transaksi(username=None):
+    print("┌────────────────────────────────────────┐")
+    print("│          📜 RIWAYAT TRANSAKSI          │")
+    print("└────────────────────────────────────────┘")
+
+    tabel = PrettyTable()
+    tabel.field_names = [
+        "Kode Transaksi",
+        "Pelanggan",
+        "Nama Obat",
+        "Jumlah",
+        "Total",
+        "Waktu"
+    ]
+
+    ada_transaksi = False
+
+    for data in transaksi:
+        if username is not None:
+            if data["username"] != username:
+                continue
+
+        tabel.add_row([
+            data["kode_transaksi"],
+            data["nama_pelanggan"],
+            data["nama_obat"],
+            data["jumlah"],
+            f"Rp{data['total']:,}".replace(",", "."),
+            data["waktu"]
+        ])
+
+        ada_transaksi = True
+
+    if ada_transaksi:
+        print(tabel)
+    else:
+        print("Belum ada transaksi yang dapat ditampilkan.")
+
+#============================
+#Ringkasan Transaksi Admin
+#============================
+def rekap_transaksi():
+    print("\n========== REKAP TRANSAKSI ==========")
+
+    if len(transaksi) == 0:
+        print("Belum ada transaksi yang tercatat.")
+        return
+
+    jumlah_transaksi = len(transaksi)
+    total_pendapatan = 0
+    total_obat_terjual = 0
+    penjualan_obat = {}
+
+    for data in transaksi:
+        total_pendapatan += data["total"]
+        total_obat_terjual += data["jumlah"]
+
+        nama_obat = data["nama_obat"]
+
+        if nama_obat in penjualan_obat:
+            penjualan_obat[nama_obat] += data["jumlah"]
+        else:
+            penjualan_obat[nama_obat] = data["jumlah"]
+
+    obat_terlaris = max(penjualan_obat, key=penjualan_obat.get)
+
+    print(f"Jumlah transaksi : {jumlah_transaksi}")
+    print(f"Total obat terjual: {total_obat_terjual}")
+    print(
+        f"Total pendapatan : Rp{total_pendapatan:,}"
+        .replace(",", ".")
+    )
+    print(
+        f"Obat terlaris    : {obat_terlaris} "
+        f"({penjualan_obat[obat_terlaris]} unit)"
+    )
+    print("=====================================")
+
+#=============
+#Menu Admin
+#=============
+def menu_admin():
+    while True:
+        print("┌────────────────────────────────────────┐")
+        print("│       ⚕️  MENU ADMIN APOTEK ⚕️           │")
+        print("├────────────────────────────────────────┤")
+        print("│ 1. Lihat Daftar Obat                   │")
+        print("│ 2. Tambah Obat                         │")
+        print("│ 3. Edit data obat                      │")
+        print("│ 4. Hapus Obat                          │")
+        print("│ 5. Riwayat Seluruh Transaksi           │")
+        print("│ 6. Ringkasan Transaksi                 │")   
+        print("│ 7. Logout                              │")                    
+        print("└────────────────────────────────────────┘")
+
+        try:
+            pilihan = int(input("Pilih menu Admin: "))
+
+            if pilihan == 1:
+                lihat_obat()
+
+            elif pilihan == 2:
+                tambah_obat()
+
+            elif pilihan == 3:
+                edit_obat()
+
+            elif pilihan == 4:
+                hapus_obat()
+
+            elif pilihan == 5:
+                riwayat_transaksi()
+
+            elif pilihan == 6:
+                rekap_transaksi()
+
+            elif pilihan == 7:
+                print("Logout berhasil.")
+                break
+                time.sleep(1)
+
+            else:
+                print("Pilihan tidak valid. Silakan pilih 1 sampai 7.")
+
+        except ValueError:
+            print("Input harus berupa angka.")
+            continue
+        except KeyboardInterrupt:
+            print("Jangan tekan Ctrl+C bro!")
+            continue
+
+#========================
+#Lihat Saldo Pelanggan
+#========================
+def lihat_saldo(username):
+    print("┌────────────────────────────────────────┐")
+    print("│           💳 SALDO PELANGGAN           │")
+    print("├────────────────────────────────────────┤")
+    print(f"Nama pelanggan: {akun[username]['nama']}")
+    print(f"Saldo saat ini: Rp{akun[username]['saldo']:,}".replace(",", "."))
+    print("└────────────────────────────────────────┘")
+    time.sleep(1)   
+
+#=========================
+#Top Up Saldo Pelanggan
+#=========================
+def top_up(username):
+    print("┌────────────────────────────────────────┐")
+    print("│            💰 TOP UP SALDO             │")
+    print("└────────────────────────────────────────┘")
+
+    while True:
+        try:
+            jumlah = int(input("Masukkan jumlah top-up (Minimal Rp5000): Rp"))
+
+            if jumlah <= 5000:
+                print("Jumlah top-up harus lebih dari Rp5.000.")
+                continue
+
+            akun[username]["saldo"] += jumlah
+
+            simpan_data(file_akun, akun)
+
+            print("Top-up berhasil!")
+            print(f"Saldo saat ini: Rp{akun[username]['saldo']:,}".replace(",", "."))
+            time.sleep(1)
+            break
+
+        except ValueError:
+            print("Jumlah top-up harus berupa angka.")
+            continue
+        except KeyboardInterrupt:
+            print("Jangan tekan Ctrl+C bro!")
+            continue
