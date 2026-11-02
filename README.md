@@ -126,8 +126,12 @@ Pelanggan memiliki akses untuk:
 6. Tampilan menu pelanggan 5 (Lihat Riwayat Transaksi)
 <img width="566" height="127" alt="Screenshot 2026-11-02 112259" src="https://github.com/user-attachments/assets/11af5a99-72ed-488e-b623-cbbbea96d5b6" />
 
-7.Tampilan menu pelanggan 6 (Logout)
+7. Tampilan menu pelanggan 6 (Logout)
 <img width="272" height="286" alt="Screenshot 2026-11-02 112336" src="https://github.com/user-attachments/assets/e76ba2a2-4717-4223-ac06-9292e34bab44" />
+
+
+
+
 
 
 
