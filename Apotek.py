@@ -864,3 +864,50 @@ def menu_pelanggan(username):
         except KeyboardInterrupt:
             print("Jangan tekan Ctrl+C bro!")
             continue
+
+#=============
+#Menu Utama
+#=============
+def menu_utama():
+    while True:
+        print("┌────────────────────────────────────────┐")
+        print("│      🏥 SISTEM MANAJEMEN APOTEK 🏥     │")
+        print("├────────────────────────────────────────┤")
+        print("│ 1. Login                               │")
+        print("│ 2. Registrasi                          │")
+        print("│ 3. Keluar                              │")
+        print("└────────────────────────────────────────┘")
+
+        try:
+            pilihan = int(input("Pilih menu: "))
+
+            if pilihan == 1:
+                username, role = login()
+
+                if role == "admin":
+                    menu_admin()
+
+                elif role == "user":
+                    menu_pelanggan(username)
+
+            elif pilihan == 2:
+                registrasi()
+
+            elif pilihan == 3:
+                print("Terima kasih telah menggunakan Sistem Manajemen Apotek Kami🤗.")
+                break
+
+            else:
+                print("Pilihan tidak valid. Silakan pilih 1, 2, atau 3.")
+
+        except ValueError:
+            print("Input harus berupa angka.")
+            continue
+        except KeyboardInterrupt:
+            print("Jangan tekan Ctrl+C bro!")
+            continue
+
+#============================
+#Menjalankan Program Utama
+#============================
+menu_utama()
