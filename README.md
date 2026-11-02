@@ -3,10 +3,10 @@
 Sistem Informasi Kelas B 26'
 
 Anggota Kelompok dan Peran
-1. Mirza Asra Ataya (2609116043): 
-2. Laila Mufida (2609116046):
-3. Muh. Faisal (2609116075):
-4. Saniyyatul Aqilah (2609116080):
+1. Mirza Asra Ataya (2609116043): Konsep, Flowchart, Coding, Pengecekan, Laporan, README
+2. Laila Mufida (2609116046): Konsep, Coding, Flowchart, Laporan, README
+3. Muh. Faisal (2609116075): Konsep, Coding, Flowchart, Laporan, Readme
+4. Saniyyatul Aqilah (2609116080): Coding, Flowchart, Laporan
 
 # DESKRIPSI DAN TUJUAN PROGRAM
 
