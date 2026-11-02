@@ -86,7 +86,7 @@ Pelanggan memiliki akses untuk:
 <img width="306" height="211" alt="Screenshot 2026-10-29 151527" src="https://github.com/user-attachments/assets/e375d677-e448-4d47-afd9-6505bbfb49f9" />
 
 2. Tampilan menu admin 1 (Lihat Daftar Obat)
-<img width="382" height="177" alt="Screenshot 2026-10-29 151946" src="https://github.com/user-attachments/assets/1b16a9c6-61de-40d6-afac-19cb9d728d47" />
+<img width="343" height="186" alt="Screenshot 2026-11-02 111339" src="https://github.com/user-attachments/assets/17bea19d-3622-40a0-892e-639cbb8a8a32" />
 
 3. Tampilan menu admin 2 (Tambah Obat)
 <img width="432" height="550" alt="Screenshot 2026-11-02 102408" src="https://github.com/user-attachments/assets/cab4a1e5-c9b8-44fa-bce1-90ffa32164a5" />
@@ -109,3 +109,28 @@ Pelanggan memiliki akses untuk:
 ## Tampilan Menu Pelanggan
 
 1. Tampilan menu pelanggan
+<img width="272" height="157" alt="Screenshot 2026-11-02 110139" src="https://github.com/user-attachments/assets/3ca34ef5-a2c3-4281-b8c9-60797ba582f4" />
+
+2. Tampilan menu pelanggan 1 (Lihat Daftar Obat)
+<img width="337" height="342" alt="Screenshot 2026-11-02 110201" src="https://github.com/user-attachments/assets/8f13c751-d7ca-4f22-8eb8-373c86b16857" />
+
+3. Tampilan menu pelanggan 2 (Cek Saldo E-Money)
+<img width="273" height="85" alt="Screenshot 2026-11-02 110303" src="https://github.com/user-attachments/assets/3dc0df36-96ff-4a3f-b4c8-7e51486c7e84" />
+
+4. Tampilan menu pelanggan 3 (Top Up Saldo E-Money)
+<img width="312" height="142" alt="Screenshot 2026-11-02 110933" src="https://github.com/user-attachments/assets/1be241a2-3589-4fe4-8411-8119c6c68d0c" />
+
+5. Tampilan menu pelanggan 4 (Beli Obat)
+<img width="345" height="590" alt="Screenshot 2026-11-02 111752" src="https://github.com/user-attachments/assets/5b21e968-ba3f-42bd-9a2c-a3e7e11c5fb8" />
+
+6. Tampilan menu pelanggan 5 (Lihat Riwayat Transaksi)
+<img width="566" height="127" alt="Screenshot 2026-11-02 112259" src="https://github.com/user-attachments/assets/11af5a99-72ed-488e-b623-cbbbea96d5b6" />
+
+7.Tampilan menu pelanggan 6 (Logout)
+<img width="272" height="286" alt="Screenshot 2026-11-02 112336" src="https://github.com/user-attachments/assets/e76ba2a2-4717-4223-ac06-9292e34bab44" />
+
+
+
+
+
+
